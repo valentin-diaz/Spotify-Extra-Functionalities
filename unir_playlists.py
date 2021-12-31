@@ -14,10 +14,14 @@ sp = spotipy.Spotify(
         )
     )
 
-def id_playlist(nombre_playlist : str) -> str:
+def id_playlist(enlace_playlist : str) -> str:
     '''
-    Retorna el id de una playlist en caso de
+    Retorna el id de una playlist dado su enlace
     '''
+    pos1 = enlace_playlist.find('playlist/') + len('playlist/')
+    pos2 = enlace_playlist.find('?')
+    id_playlist = enlace_playlist[pos1 : pos2]
+    return id_playlist
 
 def obtener_canciones(id_playlist : str) -> list:
     '''
@@ -72,7 +76,8 @@ def main():
     cantidad = int(input('¿Cuántas listas deseas unir? '))
     listas = []
     for i in range(cantidad):
-        id_lista = input(f'ID de la lista {i + 1}: ')
+        enlace_lista = input(f'ID de la lista {i + 1}: ')
+        id_lista = id_playlist(enlace_lista)
         listas.append(id_lista)
 
     nombre_lista_unida = input('Nombre de la nueva lista: ')
