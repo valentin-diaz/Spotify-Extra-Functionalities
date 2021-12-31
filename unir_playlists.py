@@ -8,9 +8,9 @@ scope = 'playlist-modify-private playlist-modify-public playlist-read-private'
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
             scope=scope,
-            client_id = '401aed7d2e6746bd82381b2b62cc8706',
-            client_secret = '2845e7dc2a1f4c3a9b69c2d69ecc362d',
-            redirect_uri = 'https://localhost:8888/callback/'
+            client_id = os.getenv('SPOTIPY_CLIENT_ID'),
+            client_secret = os.getenv('SPOTIPY_CLIENT_SECRET'),
+            redirect_uri = os.getenv('SPOTIPY_REDIRECT_URI')
         )
     )
 
