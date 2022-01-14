@@ -130,3 +130,6 @@ dmypy.json
 
 # Cache para seguimiento de playlists
 cache_playlists
+
+# Archivos personales
+s_*.py
